@@ -1,4 +1,7 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+
+from users.forms import RegisterUserForm
 
 
 def login_user(request):
@@ -11,3 +14,8 @@ def logout_user(request):
 
 def profile_user(request):
     return HttpResponse("Profile")
+
+
+def register(request):
+    form = RegisterUserForm()
+    return render(request, 'users/register.html', {'form': form})
