@@ -5,14 +5,14 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 
 
-class RegisterUserForm(forms.ModelForm):
+class RegisterUserForm(UserCreationForm):
     username = forms.CharField(label="Логин", widget=forms.TextInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label="Повтор пароля", widget=forms.PasswordInput(attrs={'class': 'form-input'}))
 
     class Meta:
-        model = get_user_model()    # возвращает текущую модель пользователя
-        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
+        model = get_user_model()
+        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'date_birth']
         labels = {
             'email': 'E-mail',
             'first_name': "Имя",

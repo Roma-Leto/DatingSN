@@ -1,5 +1,5 @@
 {#{% extends 'socialnetwork/index.html' %}#}
-{% block content %}
+{#{% block content %}#}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,13 +7,13 @@
     <title>Регистрация</title>
 </head>
 <body>
-    <forn method="post">
+    <form method="post">
         {% csrf_token %}
-        <input type="hidden" name="next" value="{{ next }}">
+        <input type="hidden" name="next" value="{{ next }}" />
         {{ form.as_p }}
         <p><button type="submit">Регистрация</button></p>
-    </forn>
+    </form>
 </body>
 </html>
-
-{% endblock %}
+{##}
+{#{% endblock %}#}
