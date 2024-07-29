@@ -26,5 +26,5 @@ class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'users/register.html'
     extra_context = {'title': "Регистрация"}
-    success_url = reverse_lazy('app_users:profile_user')
+    success_url = reverse_lazy('app_social:homepage')
 
