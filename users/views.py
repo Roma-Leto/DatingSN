@@ -1,13 +1,15 @@
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from users.forms import RegisterUserForm
+from users.forms import RegisterUserForm, UserLoginForm
 
 
-def login_user(request):
-    return HttpResponse("Login")
+# def login_user(request):
+#     return HttpResponse("Login")
 
 
 def logout_user(request):
@@ -28,3 +30,17 @@ class RegisterUser(CreateView):
     extra_context = {'title': "Регистрация"}
     success_url = reverse_lazy('app_social:homepage')
 
+
+class UserLogin(LoginView):
+    form_class = UserLoginForm      # AuthenticationForm
+    template_name = 'users/login.html'
+    extra_context = {'title': 'Авторизация'}
+
+    # Переопределение функции перенаправления после успешной авторизации.
+    # По умолчанию - profile
+    def get_success_url(self):
+        return reverse_lazy("app_social:homepage")
+
+
+class UserLogout(LogoutView):
+    pass

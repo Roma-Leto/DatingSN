@@ -2,7 +2,8 @@ import datetime
 
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import AuthenticationForm, \
+    UserCreationForm, PasswordChangeForm
 
 
 class RegisterUserForm(UserCreationForm):
@@ -29,3 +30,10 @@ class RegisterUserForm(UserCreationForm):
         if get_user_model().objects.filter(email=email).exists():
             raise forms.ValidationError("Такой E-mail уже существует!")
         return email
+
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.CharField(label='Логин',
+                               widget=forms.TextInput(attrs={'class': 'form-input'}))
+    password = forms.CharField(label='Пароль',
+                               widget=forms.PasswordInput(attrs={'class': 'form-input'}))
