@@ -17,7 +17,7 @@ def logout_user(request):
 
 
 def profile_user(request):
-    return HttpResponse("Profile")
+    return render(request, "users/profile.html", {'title': 'Профиль'})
 
 
 # def register(request):
@@ -39,7 +39,7 @@ class UserLogin(LoginView):
     # Переопределение функции перенаправления после успешной авторизации.
     # По умолчанию - profile
     def get_success_url(self):
-        return reverse_lazy("app_social:homepage")
+        return reverse_lazy("app_users:profile_user")
 
 
 class UserLogout(LogoutView):

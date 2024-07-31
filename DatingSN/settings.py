@@ -128,7 +128,7 @@ STATICFILES_DIRS = []
 
 
 # Адрес перенаправления после авторизации
-LOGIN_REDIRECT_URL = 'app_social:homepage'
+LOGIN_REDIRECT_URL = 'app_users:profile_user'
 # Адрес перенаправления неавторизированных пользователей, при попытке посещения
 # закрытых страниц
 # LOGIN_URL =
