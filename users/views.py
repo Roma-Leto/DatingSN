@@ -43,4 +43,4 @@ class UserLogin(LoginView):
 
 
 class UserLogout(LogoutView):
-    pass
+    next_page = 'app_social:homepage'

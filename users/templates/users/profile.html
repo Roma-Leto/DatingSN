@@ -13,6 +13,10 @@
         {{ form.as_p }}
         <p><button type="submit">Профиль</button></p>
     </form>
+    <form action="{% url 'app_users:logout' %}" method="post">
+        {% csrf_token %}
+        <p><button>Выход</button></p>
+    </form>
 </body>
 </html>
 {##}
