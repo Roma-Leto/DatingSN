@@ -1,3 +1,4 @@
+from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponse
@@ -32,7 +33,7 @@ class RegisterUser(CreateView):
 
 
 class UserLogin(LoginView):
-    form_class = UserLoginForm      # AuthenticationForm
+    form_class = UserLoginForm  # AuthenticationForm
     template_name = 'users/login.html'
     extra_context = {'title': 'Авторизация'}
 
